@@ -35,6 +35,28 @@
 
     //Modulas of 2 number
     echo "Modulas is $mod </br>";
-    
+
+
+    //constant variables
+    const PI = 3.1416;
+    //print constant variables with string
+    echo "Value of PI is " . PI . "</br>";
+
+    //array
+    $students = ["Faisal", "Rayhan", "Afrid"];
+    //print array with print_r
+    echo "Normal Array: ";
+    print_r($students);
+    echo "</br>";
+
+    //assosiative array key pare value like JS Object
+    $Faisal = ["name" => "Faisal Yousuf Afrid", "age" => 22, "address" => "Gulshan, Dhaka"];
+    //print full assosiative array with print_r
+    echo "Assosiative Array: ";
+    print_r($Faisal);
+    echo "</br>";
+    //print assosiative array specific data with print_r
+    echo "Assosiative array specific data: {$Faisal["address"]}";
+
 ?>
 
