@@ -85,9 +85,28 @@
     $string = "This is a String ";
     echo "String: ". $string . "<br>";
     echo "String Length: ". strlen($string) . "<br>";
-    echo "String Uppercase: ". strtoupper($string) . "<br>";
-    echo "String Lowercase: ". strtolower($string) . "<br>";
+    echo "String WordCount: ". str_word_count($string) . "<br>";
+    echo "String UpperCase: ". strtoupper($string) . "<br>";
+    echo "String LowerCase: ". strtolower($string) . "<br>";
     echo "String Trim: ". trim($string) . "<br>";
     echo "String Replace: ". str_replace("String", "Replaced String", $string) . "<br>";
+
+    echo "===================STRING FUNCTIONS===================" . "<br>";
+    $functionText = "i love PHP";
+    echo "String: ". $functionText . '<br>';
+    echo "String Length: ". strlen($functionText) . '<br>';
+    echo "String Reverse: ". strrev($functionText) . '<br>';
+
+    
+    echo "String Position of PHP: ". strpos($functionText, "PHP") . '<br>';
+    echo "String First Word Capital: ". ucfirst($functionText) . '<br>';
+    echo "String Split: "; print_r(str_split($functionText));
+    echo '<br>';
+
+    echo "===================TYPE CASTING===================" . "<br>";
+    $value = "100.50";
+    echo "String Value: ".$value."<br>";
+    echo "String To Integer Value: ". (int) $value ."<br>";
+    echo "String To Float Value: ". (float) $value ."<br>";
 ?>
 
