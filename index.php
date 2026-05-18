@@ -90,23 +90,119 @@
     echo "String LowerCase: ". strtolower($string) . "<br>";
     echo "String Trim: ". trim($string) . "<br>";
     echo "String Replace: ". str_replace("String", "Replaced String", $string) . "<br>";
+    echo "String Case Ignore Replace: ". str_ireplace("string", "Replaced Case Ignored String", $string) . "<br>";
 
     echo "===================STRING FUNCTIONS===================" . "<br>";
     $functionText = "i love PHP";
+    $fruits = ["Apple", "Banana", "Orange", "Mango"];
+    $number = 12345.678;
     echo "String: ". $functionText . '<br>';
     echo "String Length: ". strlen($functionText) . '<br>';
     echo "String Reverse: ". strrev($functionText) . '<br>';
-
-    
     echo "String Position of PHP: ". strpos($functionText, "PHP") . '<br>';
+    echo "Charecter Position of H in PHP: ". strrpos("PHP", "H") . '<br>';
+    echo "All Word First Charecter Capital: ". ucwords($functionText) . '<br>';
     echo "String First Word Capital: ". ucfirst($functionText) . '<br>';
-    echo "String Split: "; print_r(str_split($functionText));
+    echo "String Repeat PHP: ". str_repeat("PHP ", 3) . '<br>';
+    echo "Sub String: ". substr($functionText, 0, 6) . '<br>';
+    echo "Character to Array: "; print_r(str_split($functionText));
     echo '<br>';
+    echo "String to Array: "; print_r(explode(" ", $functionText));
+    echo '<br> Fruits Array: ';
+    print_r($fruits);
+    echo "<br> Array to String: "; print_r(implode(",", $fruits));
+    echo "<br> Number: $number";
+    echo "<br> Number Formating: ". number_format($number ,2 ) . "<br>";
+    echo "HTML to TEXT: ". htmlspecialchars("<h1>This is a H1 Tag Text</h1>") . "<br>";
+    echo "HTML Tag remove: ". strip_tags("<h1>This is a Text without tag. </h1>") . "<br>";
+    echo "String Chunk Split (divide string): ". chunk_split($functionText, 1, "-") . "<br>";
 
     echo "===================TYPE CASTING===================" . "<br>";
     $value = "100.50";
     echo "String Value: ".$value."<br>";
     echo "String To Integer Value: ". (int) $value ."<br>";
     echo "String To Float Value: ". (float) $value ."<br>";
+
+    echo "===================CONTROL STRUCTURE===================" . "<br>";
+    $isLoggedIn = true;
+    echo $isLoggedIn? "Is Logged In: true <br>":"Is Logged In: false <br>";
+    echo "Ternery Operator: ";
+    echo $isLoggedIn?"Welcome" . "<br>":"Login" . "<br>";
+    echo "If-Else: ";
+    if($isLoggedIn){
+        echo "Welcome"."<br>";
+    }else{
+        echo "Login"."<br>";
+    }
+    $color = "Sea Green";
+    echo "Color: $color <br>";
+    echo "Switch Statement: ";
+    switch ($color) {
+        case 'Sea Green':
+            echo "$color Is My Favourite Color. <br>";
+            break;
+        default:
+            echo "$color Is Not My Favourite Color. <br>";
+            break;
+    }
+    echo "===================LOOP STRUCTURE===================" . "<br>";
+    echo "--For Loop:<br>";
+    for($i=0; $i<3; $i++){
+        echo "I love Bangladesh<br>";
+    }
+    echo "--While Loop:<br>";
+    $i = 0;
+    while($i<3){
+        echo "I love to Travel <br>";
+        $i++;
+    }
+    echo "--Do While Loop:<br>";
+    $i = 1;
+    do{
+        echo "$i. This is Batch-71 <br>";
+        if($i>2){
+            break;
+        }
+        $i++;
+    }while(true);
+    echo "===================FUNCTIONS===================" . "<br>";
+
+    echo "Perameterize Function: ";
+    function Hello($fname = "Guest", $lname = ""){
+        echo "Hello, $fname $lname.";
+    }
+    Hello("Moksed", "Islam");
+
+    echo "<br> Named Argument Function: ";
+    function makeCofee($type = "Black", $size = "Medium"){
+        echo "Hello, Please Make A $size Size $type Cofee.";
+    }
+    makeCofee(size:"large", type:"Orange");
+
+    echo "<br>Type Function With Return Type: ";
+    function add(int $a = 0, float $b = 0):float{
+       return  $a + $b;
+    }
+    echo add(10, 20.50);
+    
+    echo "<br> Global Variable Example: ";
+    $globalVar = "Global Variable";
+    function globalExample(){
+        global $globalVar;
+        echo "Hello, $globalVar";
+    }
+    globalExample();
+
+    echo "<br> Annonymous Function/Clouser : ";
+    $annonymous = function(){
+        echo "Hello, I am Annonymous Function.";
+    };
+    $annonymous();
+
+    echo "<br> Annonymous Function/Clouser With Perameter : ";
+    $annPer = function()use($globalVar){
+        echo "Hello, I am {$globalVar} in Annonymous Function.";
+    };
+    $annPer();
 ?>
 
