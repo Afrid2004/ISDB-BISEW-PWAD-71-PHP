@@ -63,24 +63,6 @@
     var_dump($float) ;
     echo "</br>";
 
-    echo "===================ARRAY & ASSOSIATIVE ARRAY===================" . "<br>";
-    //array
-    $students = ["Faisal", "Rayhan", "Afrid"];
-    //print array with print_r
-    echo "Normal Array: ";
-    print_r($students);
-    echo "</br>";
-    echo "As a String in pre tag: <pre>".print_r($students,true)."</pre>";
-
-    //assosiative array key pare value like JS Object
-    $Assosiative = ["name" => "Faisal Yousuf Afrid", "age" => 22, "address" => "Gulshan, Dhaka"];
-    //print full assosiative array with print_r
-    echo "Assosiative Array: ";
-    print_r($Assosiative);
-    echo "</br>";
-    //print assosiative array specific data with echo
-    echo "Assosiative array specific data: {$Assosiative["address"]}" . "<br>";
-
     echo "===================STRING OPERATIONS===================" . "<br>";
     $string = "This is a String ";
     echo "String: ". $string . "<br>";
@@ -201,8 +183,59 @@
 
     echo "<br> Annonymous Function/Clouser With Perameter : ";
     $annPer = function()use($globalVar){
-        echo "Hello, I am {$globalVar} in Annonymous Function.";
+        echo "Hello, I am {$globalVar} in Annonymous Function. <br>";
     };
     $annPer();
+
+    echo "===================ARRAY & ASSOSIATIVE ARRAY===================" . "<br>";
+    $fruitsArray = ["Apple", "Mango", "Banana", "Pineapple"];
+    $fruitsAssosiative = ["Apple" => 200, "Mango" => 300, "Banana" => 50, "Pineapple" => 100];
+    $studentsArray = [
+        ["Name" => "Afrid", "Id"=> 001, "Hobby"=> "Playing Cricket"],
+        ["Name"=> "Rayhan", "Id"=> 002, "Hobby"=> "Playing Football"],
+        ["Name"=> "Fardin", "Id"=> 003, "Hobby"=> "Gardening"],
+    ];
+    $studentsArrayObj = [
+        (object)["Name" => "Afrid", "Id"=> 001, "Hobby"=> "Playing Cricket"],
+        (object)["Name"=> "Rayhan", "Id"=> 002, "Hobby"=> "Playing Football"],
+        (object)["Name"=> "Fardin", "Id"=> 003, "Hobby"=> "Gardening"],
+    ];
+    echo "Fruits Array: ";
+    print_r($fruitsArray);
+    echo "<br> Array length: ";
+    print_r(count($fruitsArray));
+    echo "<br> Array Items: ";
+    foreach ($fruitsArray as $key => $fruit) {
+        echo "{$key}. {$fruit} ";
+    }
+    echo "<br>Fruits Assosiative Array: ";
+    print_r($fruitsAssosiative);
+    echo "<br>Assosiative Array Items: ";
+    foreach ($fruitsAssosiative as $key => $fruit) {
+        echo "{$key}: {$fruit}tk, ";
+    }
+    echo "<br>Students Array Items: <br>";
+    foreach($studentsArray as $key => $students){
+        echo "{$key}: "; 
+        foreach ($students as $keys => $student) {
+            echo "{$keys}: {$student} ";
+        }
+        echo "<br>";
+    }
+    echo "Array of object: ";
+    print_r($studentsArrayObj);
+    echo "<br>Array of object Items: <br>";
+    foreach($studentsArrayObj as $key=> $student){
+        echo "Name: {$student->Name}, Id: {$student->Id}, Hobby: {$student->Hobby}  <br>";
+    }
+    $json = json_encode($studentsArrayObj);
+    echo "Array of object to JSON: <br>";
+    print_r($json);
+    echo "<br>JSON to Array of object : <br>";
+    print_r(json_decode($json));
+    echo "<br>";
+
+    echo "===================ARRAY METHODS===================" . "<br>";
 ?>
 
+  
