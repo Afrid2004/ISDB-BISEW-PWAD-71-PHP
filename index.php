@@ -73,8 +73,9 @@
     echo "String Trim: ". trim($string) . "<br>";
     echo "String Replace: ". str_replace("String", "Replaced String", $string) . "<br>";
     echo "String Case Ignore Replace: ". str_ireplace("string", "Replaced Case Ignored String", $string) . "<br>";
-
+    echo "=======================================================" . "<br>";
     echo "===================STRING FUNCTIONS===================" . "<br>";
+    echo "=======================================================" . "<br>";
     $functionText = "i love PHP";
     $fruits = ["Apple", "Banana", "Orange", "Mango"];
     $number = 12345.678;
@@ -98,14 +99,16 @@
     echo "HTML to TEXT: ". htmlspecialchars("<h1>This is a H1 Tag Text</h1>") . "<br>";
     echo "HTML Tag remove: ". strip_tags("<h1>This is a Text without tag. </h1>") . "<br>";
     echo "String Chunk Split (divide string): ". chunk_split($functionText, 1, "-") . "<br>";
-
+    echo "==================================================" . "<br>";
     echo "===================TYPE CASTING===================" . "<br>";
+    echo "==================================================" . "<br>";
     $value = "100.50";
     echo "String Value: ".$value."<br>";
     echo "String To Integer Value: ". (int) $value ."<br>";
     echo "String To Float Value: ". (float) $value ."<br>";
-
+    echo "=========================================================" . "<br>";
     echo "===================CONTROL STRUCTURE===================" . "<br>";
+    echo "=========================================================" . "<br>";
     $isLoggedIn = true;
     echo $isLoggedIn? "Is Logged In: true <br>":"Is Logged In: false <br>";
     echo "Ternery Operator: ";
@@ -127,7 +130,9 @@
             echo "$color Is Not My Favourite Color. <br>";
             break;
     }
+    echo "=====================================================" . "<br>";
     echo "===================LOOP STRUCTURE===================" . "<br>";
+    echo "=====================================================" . "<br>";
     echo "--For Loop:<br>";
     for($i=0; $i<3; $i++){
         echo "I love Bangladesh<br>";
@@ -147,7 +152,9 @@
         }
         $i++;
     }while(true);
+    echo "================================================" . "<br>";
     echo "===================FUNCTIONS===================" . "<br>";
+    echo "================================================" . "<br>";
 
     echo "Perameterize Function: ";
     function Hello($fname = "Guest", $lname = ""){
@@ -186,8 +193,9 @@
         echo "Hello, I am {$globalVar} in Annonymous Function. <br>";
     };
     $annPer();
-
+    echo "================================================================" . "<br>";
     echo "===================ARRAY & ASSOSIATIVE ARRAY===================" . "<br>";
+    echo "================================================================" . "<br>";
     $fruitsArray = ["Apple", "Mango", "Banana", "Pineapple"];
     $fruitsAssosiative = ["Apple" => 200, "Mango" => 300, "Banana" => 50, "Pineapple" => 100];
     $studentsArray = [
@@ -234,8 +242,35 @@
     echo "<br>JSON to Array of object : <br>";
     print_r(json_decode($json));
     echo "<br>";
-
+    echo "Fruits Array: ";
+    print_r($fruitsArray);
+    echo "<br> Array Item Insert in 4 index: ";
+    $fruitsArray[4] = "Jackfruit";
+    print_r($fruitsArray);
+    echo "<br>Assosiative Array Insert: ";
+    $player1["Name"] = "Hamza Dewan";
+    $player1["Club"] = "Laster City";
+    $player1["Age"] = 23;
+    print_r($player1);
+    $player2["Name"] = "Sheikh Rayhan";
+    $player2["Club"] = "Barcelona";
+    $player2["Age"] = 100;
+    echo "<br>Multiple Assosiative Array Insert: ";
+    $players= [$player1, $player2];
+    print_r($players);
+    echo "<br>";
+    echo "=====================================================" . "<br>";
     echo "===================ARRAY METHODS===================" . "<br>";
+    echo "=====================================================" . "<br>";
+
+    $array = [1,2,3,4];
+    $assosiativeArray = ["a" => 1,"b" => 2,"c" => 3,"d" => 4,];
+    echo "Array: ";
+    print_r($array);
+    echo "<br>Assosiative Array: ";
+    print_r($assosiativeArray);
+    echo "<br>Is Array? ";
+    var_dump(is_array($array));
 ?>
 
   
