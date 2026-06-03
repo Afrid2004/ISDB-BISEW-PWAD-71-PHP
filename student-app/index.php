@@ -1,10 +1,9 @@
 <?php
 require_once('student-class.php');
 $students = Student::showAllstudent();
-
+$founded = [];
 //get search field id
 $errors = [];
-$founded=[];
 if (isset($_GET['id_submit'])) {
     $fid = $_GET['sid'];
 
@@ -88,8 +87,25 @@ if (isset($_GET['id'])) {
                             <button class="btn btn-dark" name="id_submit">Search</button>
                         </div>
                     </form>
-                    <div><?php echo  count($founded) > 0 ? "" :"Data Not found" ?>
-                            <p><?php echo $founded['id'] ?></p>
+                    <div>
+                        <?php
+                        if (isset($_GET['id_submit'])) {
+                            if (count($founded) > 0) {
+                                echo "
+                                <ul class='list-group'>
+                                    <li class='list-group-item'><strong>Id:</strong> {$founded['id']}</li>
+                                    <li class='list-group-item'><strong>Name:</strong> {$founded['name']}</li>
+                                    <li class='list-group-item'><strong>Email:</strong> {$founded['email']}</li>
+                                    <li class='list-group-item'><strong>Gender:</strong> {$founded['gender']}</li>
+                                    <li class='list-group-item'><strong>Mobile:</strong> {$founded['mobile']}</li>
+                                </ul>";
+                            } else {
+                                echo "<ul class='list-group'>
+                                    <li class='list-group-item'>No Data Found.</li>
+                                </ul>";
+                            }
+                        }
+                        ?>
                     </div>
 
                 </div>

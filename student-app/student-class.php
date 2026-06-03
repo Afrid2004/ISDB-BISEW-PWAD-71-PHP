@@ -36,14 +36,13 @@ class Student
     //find data using perameterized id
     static function find($fid)
     {
-        $students = file('../student_data.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $students = file('student_data.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         $result = [];
         foreach ($students as $student) {
             //split the array where found comma ,
             list($id, $name, $email, $gender, $mobile) = explode(',', $student);
-            if ($fid === $id) {
-                //again retrive the splited array
-                $result = compact('id', 'name', 'email', 'gender', 'mobile');
+            if (trim($fid) == trim($id)) {
+                return compact('id', 'name', 'email', 'gender', 'mobile');
             }
         }
         if (count($result)) {
@@ -70,14 +69,15 @@ class Student
     }
 
     //delete student
-    static function deleteStudent($sid){
+    static function deleteStudent($sid)
+    {
         $students = file('student_data.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         $data = "";
         foreach ($students as $student) {
             list($id) = explode(',', $student);
             // if id not matched with the perameterized id then put all data without it
             if ($id != $sid) {
-               $data .= PHP_EOL.$student;
+                $data .= PHP_EOL . $student;
             }
         }
         // again entry data without the id
