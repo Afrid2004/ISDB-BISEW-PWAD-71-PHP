@@ -66,7 +66,7 @@ if (isset($_GET['id'])) {
                                 <td><?php echo $mobile ?></td>
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
-                                        <a class="btn btn-warning btn-sm" href="update/?id=<?php echo $id; ?>">Update</a>
+                                        <a class="btn btn-dark btn-sm" href="update/?id=<?php echo $id; ?>">Update</a>
                                         <a class="btn btn-danger btn-sm" href="index.php?id=<?php echo $id; ?>">Delete</a>
                                     </div>
                                 </td>
