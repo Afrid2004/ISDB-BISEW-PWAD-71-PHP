@@ -1,7 +1,7 @@
 <?php
 
-// autoload used for to reduce include once for each class 
-include_once "autoload.php";
+// composer autoload used for to reduce include once for each class 
+include_once "vendor/autoload.php";
 
 //using namespace for folder wise classes 
 use \Classes\Education\School;
